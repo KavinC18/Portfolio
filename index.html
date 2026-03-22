@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kavin C — Backend Developer Portfolio</title>
-  <meta name="description" content="Portfolio of Kavin C — Backend Developer specializing in Java, Spring Boot, REST APIs, and MySQL. B.Tech IT student at Sri Krishna College of Technology." />
-  <meta name="keywords" content="Kavin C, Backend Developer, Java, Spring Boot, REST API, MySQL, Portfolio" />
-  <meta property="og:title" content="Kavin C — Backend Developer Portfolio" />
-  <meta property="og:description" content="Explore my projects, skills, and experience in backend development." />
-  <meta property="og:type" content="website" />
+  <title>Kavin — Backend Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Kavin — Backend Developer specializing in Java, Spring Boot, REST APIs, and MySQL." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
 </head>
+
 <body>
+
+  <!-- Particle canvas (background layer) -->
+  <canvas id="particle-canvas"></canvas>
+
+
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
@@ -35,74 +41,84 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-glow hero-glow--1"></div>
-    <div class="hero-glow hero-glow--2"></div>
     <div class="hero-content">
-      <p class="hero-greeting animate-on-scroll">Hello, I'm</p>
-      <h1 class="hero-name animate-on-scroll">Kavin C</h1>
-      <div class="hero-title-wrapper animate-on-scroll">
-        <span class="hero-title-prefix">I build</span>
+      <div class="hero-badge anim-reveal">
+        <span class="pulse-dot"></span>
+        Open to opportunities
+      </div>
+      <h1 class="hero-name anim-reveal">Kavin</h1>
+      <div class="hero-title-wrapper anim-reveal">
+        <span class="hero-title-prefix">I craft</span>
         <span class="hero-typed" id="hero-typed"></span>
         <span class="hero-cursor">|</span>
       </div>
-      <p class="hero-description animate-on-scroll">
-        Motivated IT student crafting robust backend systems with Java &amp; Spring Boot.
+      <p class="hero-description anim-reveal">
+        Building robust backend systems with Java &amp; Spring Boot —
+        one clean API at a time.
       </p>
-      <div class="hero-cta animate-on-scroll">
-        <a href="#projects" class="btn btn--primary">View Projects</a>
-        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+      <div class="hero-cta anim-reveal">
+        <a href="#projects" class="btn btn--primary">
+          <span>View Projects</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+        <a href="newresume.pdf" download class="btn btn--glass">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Get My Resume</span>
+        </a>
       </div>
-      <div class="hero-scroll-indicator animate-on-scroll">
-        <div class="mouse">
-          <div class="mouse-wheel"></div>
-        </div>
-        <span>Scroll down</span>
+      <div class="hero-scroll anim-reveal">
+        <div class="scroll-line"></div>
       </div>
     </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <section class="section about" id="about">
+  <section class="section" id="about">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="section-number">01.</span> About Me
-      </h2>
+      <div class="section-header anim-reveal">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">More about me</h2>
+      </div>
       <div class="about-grid">
-        <div class="about-text animate-on-scroll">
-          <p>
+        <div class="about-text">
+          <p class="anim-reveal">
             I'm a <strong>B.Tech Information Technology</strong> student at
             <strong>Sri Krishna College of Technology</strong> with a passion for building
             clean, scalable backend systems.
           </p>
-          <p>
+          <p class="anim-reveal">
             My core expertise lies in <strong>Java</strong> and <strong>Spring Boot</strong>,
             where I design RESTful APIs backed by <strong>MySQL</strong> databases. I follow
-            industry best practices — layered architecture, input validation, and thorough
-            API testing with Postman.
+            industry best practices — layered architecture, input validation, and API testing
+            with Postman.
           </p>
-          <p>
-            Beyond backend development, I've explored <strong>AI/ML workflows</strong>,
-            building an image classification system for skin cancer detection. I thrive on
-            solving complex problems and constantly expanding my skill set.
+          <p class="anim-reveal">
+            Beyond backend, I've explored <strong>AI/ML workflows</strong>,
+            building an image classification system for skin cancer detection.
           </p>
         </div>
-        <div class="about-stats animate-on-scroll">
-          <div class="stat-card">
-            <span class="stat-number" data-target="3">0</span>
-            <span class="stat-label">Projects Built</span>
+        <div class="about-stats">
+          <div class="stat-card anim-reveal" data-tilt>
+            <span class="stat-number" data-count="3">0</span>
+            <span class="stat-label">Projects</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-number" data-target="7">0</span>
+          <div class="stat-card anim-reveal" data-tilt>
+            <span class="stat-number" data-count="7">0</span>
             <span class="stat-label">Technologies</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-number" data-target="2">0</span>
+          <div class="stat-card anim-reveal" data-tilt>
+            <span class="stat-number" data-count="2">0</span>
             <span class="stat-label">Certifications</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-number" data-target="200">0</span>
-            <span class="stat-label">API Records Handled</span>
+          <div class="stat-card anim-reveal" data-tilt>
+            <span class="stat-number" data-count="200">0</span>
+            <span class="stat-label">API Records</span>
           </div>
         </div>
       </div>
@@ -110,17 +126,22 @@
   </section>
 
   <!-- ===== SKILLS ===== -->
-  <section class="section skills" id="skills">
+  <section class="section section--dark" id="skills">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="section-number">02.</span> Technical Skills
-      </h2>
+      <div class="section-header anim-reveal">
+        <span class="section-tag">02 — Skills</span>
+        <h2 class="section-title">My tech stack</h2>
+      </div>
+
       <div class="skills-grid">
 
-        <div class="skill-category animate-on-scroll">
+        <div class="skill-category anim-reveal" data-tilt>
           <div class="skill-category-header">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
             </div>
             <h3>Languages</h3>
           </div>
@@ -130,10 +151,14 @@
           </div>
         </div>
 
-        <div class="skill-category animate-on-scroll">
+        <div class="skill-category anim-reveal" data-tilt>
           <div class="skill-category-header">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
             </div>
             <h3>Backend</h3>
           </div>
@@ -144,10 +169,14 @@
           </div>
         </div>
 
-        <div class="skill-category animate-on-scroll">
+        <div class="skill-category anim-reveal" data-tilt>
           <div class="skill-category-header">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
             </div>
             <h3>Database</h3>
           </div>
@@ -158,10 +187,13 @@
           </div>
         </div>
 
-        <div class="skill-category animate-on-scroll">
+        <div class="skill-category anim-reveal" data-tilt>
           <div class="skill-category-header">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
             </div>
             <h3>Tools</h3>
           </div>
@@ -172,10 +204,13 @@
           </div>
         </div>
 
-        <div class="skill-category animate-on-scroll">
+        <div class="skill-category anim-reveal" data-tilt>
           <div class="skill-category-header">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.57-3.25 3.92L12 22l-.75-12.08A4.001 4.001 0 0 1 12 2z"></path><circle cx="12" cy="6" r="1"></circle></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
             </div>
             <h3>Concepts</h3>
           </div>
@@ -187,157 +222,133 @@
           </div>
         </div>
 
-        <div class="skill-category animate-on-scroll">
+        <div class="skill-category anim-reveal" data-tilt>
           <div class="skill-category-header">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
             </div>
             <h3>AI Tools</h3>
           </div>
           <div class="skill-tags">
             <span class="skill-tag">Anti Gravity</span>
             <span class="skill-tag">Model Training</span>
-            <span class="skill-tag">Workflow Management</span>
+            <span class="skill-tag">Workflow Mgmt</span>
           </div>
         </div>
 
       </div>
+
+
     </div>
   </section>
 
   <!-- ===== PROJECTS ===== -->
-  <section class="section projects" id="projects">
+  <section class="section" id="projects">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="section-number">03.</span> Featured Projects
-      </h2>
-      <div class="projects-grid">
+      <div class="section-header anim-reveal">
+        <span class="section-tag">03 — Projects</span>
+        <h2 class="section-title">What I've built</h2>
+      </div>
+      <div class="projects-stack">
 
-        <!-- Project 1 -->
-        <article class="project-card animate-on-scroll" id="project-student-api">
-          <div class="project-card-glow"></div>
-          <div class="project-header">
-            <div class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/kavin" target="_blank" rel="noopener noreferrer" title="GitHub" class="project-link-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              </a>
+        <article class="project-card anim-reveal" data-tilt id="project-student-api">
+          <div class="project-number">01</div>
+          <div class="project-body">
+            <h3 class="project-title">Student Management System</h3>
+            <span class="project-label">REST API</span>
+            <p class="project-description">
+              Full-featured RESTful API handling 200+ student records with CRUD operations.
+              Layered architecture (Controller → Service → Repository) with input validation
+              and exception handling.
+            </p>
+            <div class="project-tech">
+              <span>Spring Boot</span><span>MySQL</span><span>Spring Data JPA</span><span>Postman</span>
             </div>
           </div>
-          <h3 class="project-title">Student Management System</h3>
-          <p class="project-subtitle">REST API</p>
-          <p class="project-description">
-            Full-featured RESTful API handling 200+ student records with CRUD operations.
-            Built with layered architecture (Controller → Service → Repository) for clean,
-            maintainable code. Includes input validation and exception handling.
-          </p>
-          <div class="project-tech">
-            <span>Spring Boot</span>
-            <span>MySQL</span>
-            <span>Spring Data JPA</span>
-            <span>Postman</span>
-          </div>
+          <a href="https://github.com/KavinC18" target="_blank" class="project-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
         </article>
 
-        <!-- Project 2 -->
-        <article class="project-card animate-on-scroll" id="project-library-db">
-          <div class="project-card-glow"></div>
-          <div class="project-header">
-            <div class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/kavin" target="_blank" rel="noopener noreferrer" title="GitHub" class="project-link-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              </a>
+        <article class="project-card anim-reveal" data-tilt id="project-library-db">
+          <div class="project-number">02</div>
+          <div class="project-body">
+            <h3 class="project-title">Library Management System</h3>
+            <span class="project-label">Database Design</span>
+            <p class="project-description">
+              Relational database schema for managing books, users, and transactions.
+              Complex SQL with joins, subqueries, and constraints. Data integrity via PKs/FKs.
+            </p>
+            <div class="project-tech">
+              <span>MySQL</span><span>SQL</span><span>Database Design</span><span>ER Modeling</span>
             </div>
           </div>
-          <h3 class="project-title">Library Management System</h3>
-          <p class="project-subtitle">Database Design</p>
-          <p class="project-description">
-            Relational database schema for managing books, users, and transactions.
-            Implemented complex SQL queries using joins, subqueries, and constraints.
-            Enforced data integrity through primary keys and foreign keys.
-          </p>
-          <div class="project-tech">
-            <span>MySQL</span>
-            <span>SQL</span>
-            <span>Database Design</span>
-            <span>ER Modeling</span>
-          </div>
+          <a href="https://github.com/KavinC18" target="_blank" class="project-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
         </article>
 
-        <!-- Project 3 -->
-        <article class="project-card animate-on-scroll" id="project-skin-cancer-ai">
-          <div class="project-card-glow"></div>
-          <div class="project-header">
-            <div class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/kavin" target="_blank" rel="noopener noreferrer" title="GitHub" class="project-link-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              </a>
+        <article class="project-card anim-reveal" data-tilt id="project-skin-cancer-ai">
+          <div class="project-number">03</div>
+          <div class="project-body">
+            <h3 class="project-title">AI Skin Cancer Detection</h3>
+            <span class="project-label">Deep Learning</span>
+            <p class="project-description">
+              Image classification using deep learning for skin cancer detection.
+              Full ML pipeline — preprocessing, training, validation, and testing.
+              Improved accuracy through iterative model evaluation.
+            </p>
+            <div class="project-tech">
+              <span>Deep Learning</span><span>Python</span><span>Image Classification</span>
             </div>
           </div>
-          <h3 class="project-title">AI Skin Cancer Detection</h3>
-          <p class="project-subtitle">Deep Learning</p>
-          <p class="project-description">
-            Image classification system using deep learning for skin cancer detection.
-            Handled full ML pipeline — preprocessing, training, validation, and testing.
-            Improved prediction accuracy through iterative model evaluation.
-          </p>
-          <div class="project-tech">
-            <span>Deep Learning</span>
-            <span>Anti Gravity</span>
-            <span>Image Classification</span>
-            <span>Python</span>
-          </div>
+          <a href="https://github.com/KavinC18" target="_blank" class="project-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- ===== EDUCATION & CERTIFICATIONS ===== -->
-  <section class="section education" id="education">
+  <!-- ===== EDUCATION ===== -->
+  <section class="section section--dark" id="education">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="section-number">04.</span> Education &amp; Certifications
-      </h2>
-      <div class="edu-grid">
-        <div class="timeline animate-on-scroll">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2023 — 2027</span>
-              <h3>B.Tech in Information Technology</h3>
-              <p>Sri Krishna College of Technology</p>
-            </div>
+      <div class="section-header anim-reveal">
+        <span class="section-tag">04 — Education</span>
+        <h2 class="section-title">Background &amp; certs</h2>
+      </div>
+      <div class="edu-timeline">
+        <div class="edu-item anim-reveal" data-tilt>
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <span class="edu-date">2023 — 2027</span>
+            <h3>B.Tech in Information Technology</h3>
+            <p>Sri Krishna College of Technology</p>
           </div>
         </div>
-
-        <div class="certifications animate-on-scroll">
-          <h3 class="cert-heading">Certifications</h3>
-          <div class="cert-card">
-            <div class="cert-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-            </div>
-            <div>
-              <h4>Java Programming Certification</h4>
-              <p>Offline</p>
-            </div>
+        <div class="edu-item anim-reveal" data-tilt>
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <span class="edu-date">Certification</span>
+            <h3>Java Programming</h3>
+            <p>Offline Certification</p>
           </div>
-          <div class="cert-card">
-            <div class="cert-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-            </div>
-            <div>
-              <h4>SQL Fundamentals Certification</h4>
-              <p>Coursera</p>
-            </div>
+        </div>
+        <div class="edu-item anim-reveal" data-tilt>
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <span class="edu-date">Certification</span>
+            <h3>SQL Fundamentals</h3>
+            <p>Coursera</p>
           </div>
         </div>
       </div>
@@ -345,55 +356,78 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="section contact" id="contact">
+  <section class="section" id="contact">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="section-number">05.</span> Get in Touch
-      </h2>
-      <div class="contact-content animate-on-scroll">
-        <p class="contact-text">
-          I'm currently looking for an <strong>entry-level Backend Developer</strong> role.
-          Whether you have an opportunity or just want to say hello — my inbox is always open!
-        </p>
-        <div class="contact-cards">
-          <a href="mailto:727823tuit106@skct.edu.in" class="contact-card" id="contact-email">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <div class="section-header anim-reveal">
+        <span class="section-tag">05 — Contact</span>
+        <h2 class="section-title">Let's connect</h2>
+      </div>
+      <div class="contact-content">
+        <div class="contact-links">
+          <a href="mailto:727823tuit106@skct.edu.in" class="contact-link anim-reveal" data-tilt id="contact-email">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
             </div>
-            <span>727823tuit106@skct.edu.in</span>
+            <div>
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">727823tuit106@skct.edu.in</span>
+            </div>
           </a>
-          <a href="tel:+917548887045" class="contact-card" id="contact-phone">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <a href="tel:+917548887045" class="contact-link anim-reveal" data-tilt id="contact-phone">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
             </div>
-            <span>+91 7548887045</span>
+            <div>
+              <span class="contact-link-label">Phone</span>
+              <span class="contact-link-value">+91 7548887045</span>
+            </div>
           </a>
-          <a href="https://github.com/kavin" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-github">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <a href="https://github.com/KavinC18" target="_blank" class="contact-link anim-reveal" data-tilt
+            id="contact-github">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
             </div>
-            <span>GitHub</span>
+            <div>
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-value">KavinC18</span>
+            </div>
           </a>
-          <a href="https://linkedin.com/in/kavin" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-linkedin">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <a href="https://www.linkedin.com/in/kavin-c-2b775b363/" target="_blank" class="contact-link anim-reveal" data-tilt
+            id="contact-linkedin">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
             </div>
-            <span>LinkedIn</span>
+            <div>
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-value">Connect with me</span>
+            </div>
           </a>
         </div>
-        <a href="mailto:727823tuit106@skct.edu.in" class="btn btn--primary btn--large">Say Hello 👋</a>
+
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
-      <p>Designed &amp; Built by <strong>Kavin C</strong></p>
-      <p class="footer-note">&copy; 2026 — All rights reserved</p>
+      <p>Designed &amp; Built by <strong>Kavin</strong> &middot; 2026</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
