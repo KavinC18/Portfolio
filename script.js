@@ -40,10 +40,10 @@
   const avatarMedia = document.getElementById('avatar-media');
 
   function updateAvatarMotion() {
-    if (!avatarMedia) return;
+    if (!avatarMedia || window.innerWidth <= 768) return;
     const scrollY = window.scrollY || window.pageYOffset;
     if (scrollY < window.innerHeight * 1.5) {
-      // Gentle decoupled scrollytelling parallax translation
+      // Gentle decoupled scrollytelling parallax translation on desktop
       avatarMedia.style.transform = `translate3d(0, ${scrollY * 0.08}px, 0)`;
     }
   }
