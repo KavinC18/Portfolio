@@ -1,195 +1,266 @@
-/* ============================================
-   Kavin — Portfolio v3
-   Particles / 3D Tilt / Drawing (in Skills) 
-   No custom cursor
-   ============================================ */
+/**
+ * KAVIN — LUXURY EDITORIAL MOTION PORTFOLIO
+ * Motion design, scrollytelling, 3D avatar parallax & interactive utilities
+ */
 
 (function () {
   'use strict';
 
-  /* ===========================================
-     1. PARTICLE SYSTEM
-     =========================================== */
-  const pCanvas = document.getElementById('particle-canvas');
-  const pCtx = pCanvas.getContext('2d');
-  let particles = [];
-  const COUNT = 70;
-  const CONNECT = 120;
-  let mouseX = -999, mouseY = -999;
+  /* ==========================================================================
+     1. SCROLL PROGRESS TRACKER (Sofi Reference: "scroll down 0%")
+     ========================================================================== */
+  const heroScrollBar = document.getElementById('hero-scroll-bar');
+  const heroScrollPercent = document.getElementById('hero-scroll-percent');
+  const header = document.getElementById('header');
 
-  function resize() {
-    pCanvas.width = window.innerWidth;
-    pCanvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-  document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+  function updateScrollProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = scrollHeight > 0 ? Math.min(Math.max(scrollTop / scrollHeight, 0), 1) : 0;
+    const percentage = Math.round(progress * 100);
 
-  class Particle {
-    constructor() { this.init(); }
-    init() {
-      this.x = Math.random() * pCanvas.width;
-      this.y = Math.random() * pCanvas.height;
-      this.vx = (Math.random() - 0.5) * 0.35;
-      this.vy = (Math.random() - 0.5) * 0.35;
-      this.r = Math.random() * 1.5 + 0.5;
-      this.a = Math.random() * 0.25 + 0.08;
+    if (heroScrollBar) {
+      heroScrollBar.style.width = percentage + '%';
     }
-    update() {
-      this.x += this.vx; this.y += this.vy;
-      if (this.x < 0 || this.x > pCanvas.width) this.vx *= -1;
-      if (this.y < 0 || this.y > pCanvas.height) this.vy *= -1;
-      const dx = this.x - mouseX, dy = this.y - mouseY;
-      const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < 140) {
-        const f = (140 - d) / 140 * 0.015;
-        this.vx += dx / d * f;
-        this.vy += dy / d * f;
-      }
-      const sp = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-      if (sp > 1) { this.vx *= 1 / sp; this.vy *= 1 / sp; }
+    if (heroScrollPercent) {
+      heroScrollPercent.textContent = percentage + '%';
     }
-    draw() {
-      pCtx.beginPath();
-      pCtx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      pCtx.fillStyle = `rgba(108,99,255,${this.a})`;
-      pCtx.fill();
+
+    if (header) {
+      header.classList.toggle('scrolled', scrollTop > 50);
     }
   }
 
-  for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
-  (function loop() {
-    pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < CONNECT) {
-          pCtx.beginPath();
-          pCtx.moveTo(particles[i].x, particles[i].y);
-          pCtx.lineTo(particles[j].x, particles[j].y);
-          pCtx.strokeStyle = `rgba(108,99,255,${0.05 * (1 - d / CONNECT)})`;
-          pCtx.lineWidth = 0.5;
-          pCtx.stroke();
-        }
-      }
+  /* ==========================================================================
+     2. GENTLE SCROLLYTELLING PARALLAX ON AVATAR (Luxury Calm Motion)
+     ========================================================================== */
+  const avatarMedia = document.getElementById('avatar-media');
+
+  function updateAvatarMotion() {
+    if (!avatarMedia) return;
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY < window.innerHeight * 1.5) {
+      // Gentle decoupled scrollytelling parallax translation
+      avatarMedia.style.transform = `translate3d(0, ${scrollY * 0.08}px, 0)`;
     }
-    // Mouse lines
-    particles.forEach(p => {
-      const dx = p.x - mouseX, dy = p.y - mouseY;
-      const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < 160) {
-        pCtx.beginPath();
-        pCtx.moveTo(p.x, p.y);
-        pCtx.lineTo(mouseX, mouseY);
-        pCtx.strokeStyle = `rgba(0,212,255,${0.1 * (1 - d / 160)})`;
-        pCtx.lineWidth = 0.5;
-        pCtx.stroke();
-      }
-    });
-    requestAnimationFrame(loop);
-  })();
+  }
 
+  window.addEventListener('scroll', updateAvatarMotion, { passive: true });
 
-
-  /* ===========================================
-     3. TYPING ANIMATION
-     =========================================== */
+  /* ==========================================================================
+     3. DYNAMIC SPECIALIZATION TYPING ANIMATION
+     ========================================================================== */
   const typedEl = document.getElementById('hero-typed');
-  const phrases = ['REST APIs.', 'Spring Boot apps.', 'scalable backends.', 'MySQL databases.', 'AI systems.'];
-  let pi = 0, ci = 0, deleting = false;
+  const specializations = [
+    'Spring Boot & REST APIs',
+    'High-Throughput Microservices',
+    'Scalable MySQL Relational Databases',
+    'Clean Layered Architecture',
+    'Queueing Simulation & Erlang-C',
+    'Applied Deep Learning & NLP'
+  ];
 
-  function typeLoop() {
-    const word = phrases[pi];
-    if (!deleting) {
-      typedEl.textContent = word.slice(0, ci + 1); ci++;
-      if (ci === word.length) { deleting = true; setTimeout(typeLoop, 2200); return; }
-      setTimeout(typeLoop, 85);
+  let specIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeTick() {
+    if (!typedEl) return;
+    const currentWord = specializations[specIndex];
+
+    if (!isDeleting) {
+      typedEl.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(typeTick, 2400); // pause at full word
+        return;
+      }
+      setTimeout(typeTick, 65);
     } else {
-      typedEl.textContent = word.slice(0, ci - 1); ci--;
-      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(typeLoop, 400); return; }
-      setTimeout(typeLoop, 35);
+      typedEl.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        specIndex = (specIndex + 1) % specializations.length;
+        setTimeout(typeTick, 350);
+        return;
+      }
+      setTimeout(typeTick, 30);
     }
   }
-  setTimeout(typeLoop, 800);
 
-  /* ===========================================
-     4. NAVBAR
-     =========================================== */
-  const navbar = document.getElementById('navbar');
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
+  setTimeout(typeTick, 1000);
 
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
-    navToggle.classList.remove('open');
-    navLinks.classList.remove('open');
-  }));
-
-  // Active nav
-  const sections = document.querySelectorAll('.section, .hero');
-  const allNavLinks = document.querySelectorAll('.nav-link');
-  window.addEventListener('scroll', () => {
-    let cur = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
-    allNavLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
-  }, { passive: true });
-
-  /* ===========================================
-     5. SCROLL REVEAL
-     =========================================== */
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  /* ==========================================================================
+     4. INTERSECTION OBSERVER FOR SCROLL REVEALS
+     ========================================================================== */
+  const revealElements = document.querySelectorAll('.anim-reveal');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.anim-reveal').forEach(el => revealObs.observe(el));
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
 
-  /* ===========================================
-     6. STAT COUNTERS
-     =========================================== */
-  const statObs = new IntersectionObserver(entries => {
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  /* ==========================================================================
+     5. STAT NUMERICAL COUNTER ANIMATION
+     ========================================================================== */
+  const metricElements = document.querySelectorAll('[data-target]');
+  const metricObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const target = parseInt(el.dataset.count);
-        const dur = 1500, start = performance.now();
-        (function up(now) {
-          const p = Math.min((now - start) / dur, 1);
-          const ease = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(ease * target);
-          if (p < 1) requestAnimationFrame(up);
-          else el.textContent = target + '+';
-        })(start);
-        statObs.unobserve(el);
+        const targetValue = parseInt(el.getAttribute('data-target'), 10);
+        const duration = 1600;
+        const startTime = performance.now();
+
+        function countFrame(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const currentCount = Math.floor(easeProgress * targetValue);
+
+          el.textContent = currentCount;
+
+          if (progress < 1) {
+            requestAnimationFrame(countFrame);
+          } else {
+            el.textContent = targetValue;
+          }
+        }
+
+        requestAnimationFrame(countFrame);
+        observer.unobserve(el);
       }
     });
   }, { threshold: 0.5 });
-  document.querySelectorAll('[data-count]').forEach(el => statObs.observe(el));
 
-  /* ===========================================
-     7. 3D TILT ON CARDS
-     =========================================== */
-  document.querySelectorAll('[data-tilt]').forEach(card => {
+  metricElements.forEach(el => metricObserver.observe(el));
+
+  /* ==========================================================================
+     6. CARD MOUSE SPOTLIGHT GLOW EFFECT
+     ========================================================================== */
+  const spotlightCards = document.querySelectorAll('[data-spotlight]');
+  spotlightCards.forEach(card => {
     card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.02)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)';
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--spotlight-x', `${x}px`);
+      card.style.setProperty('--spotlight-y', `${y}px`);
     });
   });
+
+  /* ==========================================================================
+     7. EMAIL COPY TO CLIPBOARD & TOAST ALERT
+     ========================================================================== */
+  const copyBtn = document.getElementById('btn-copy-email');
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toast-message');
+  let toastTimer = null;
+
+  function showToast(message) {
+    if (!toast) return;
+    if (toastMessage) toastMessage.textContent = message;
+    toast.classList.add('active');
+
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('active');
+    }, 3200);
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const email = '727823tuit106@skct.edu.in';
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          // Fallback
+          const tempInput = document.createElement('input');
+          tempInput.value = email;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+        }
+        showToast('Email address copied to clipboard!');
+      } catch (err) {
+        showToast('Direct email: 727823tuit106@skct.edu.in');
+      }
+    });
+  }
+
+  /* ==========================================================================
+     8. NAVIGATION ACTIVE HIGHLIGHT & MOBILE DRAWER
+     ========================================================================== */
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  const desktopNavItems = document.querySelectorAll('.nav-item');
+  const sections = document.querySelectorAll('section[id]');
+
+  if (menuToggle && mobileDrawer) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('open');
+      menuToggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+        menuToggle.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Active navigation tracking
+  window.addEventListener('scroll', () => {
+    let currentSectionId = '';
+    const scrollPos = window.scrollY + 180;
+
+    sections.forEach(section => {
+      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
+
+    desktopNavItems.forEach(item => {
+      const href = item.getAttribute('href');
+      if (href === '#' + currentSectionId) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }, { passive: true });
+
+  /* ==========================================================================
+     9. BACK TO TOP SMOOTH SCROLL
+     ========================================================================== */
+  const backToTopBtn = document.getElementById('btn-back-to-top');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
 })();

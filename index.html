@@ -4,468 +4,978 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kavin — Backend Developer Portfolio</title>
+  <title>Kavin — Backend Engineer &amp; Systems Architect</title>
   <meta name="description"
-    content="Portfolio of Kavin — Backend Developer specializing in Java, Spring Boot, REST APIs, and MySQL." />
+    content="Editorial portfolio of Kavin — Backend Developer specializing in Java, Spring Boot, REST APIs, MySQL, and High-Throughput Systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
 </head>
 
-<body>
+<body class="editorial-body">
 
-  <!-- Particle canvas (background layer) -->
-  <canvas id="particle-canvas"></canvas>
+  <!-- Top Announcement / Minimal Header -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo" aria-label="Kavin Home">
+        <span class="logo-text">kavin</span>
+        <span class="logo-dot"></span>
+      </a>
 
+      <nav class="nav-menu" id="nav-menu" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#skills" class="nav-item">Tech Stack</a></li>
+          <li><a href="#projects" class="nav-item">Projects</a></li>
+          <li><a href="#education" class="nav-item">Background</a></li>
+          <li><a href="#contact" class="nav-item">Contact</a></li>
+          <li>
+            <a href="kavin_resume1.pdf" download="kavin_resume1.pdf" class="nav-item nav-item--resume" title="Download Resume (PDF)">
+              <span>Resume</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-
-  <!-- ===== NAVIGATION ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">&lt;KC /&gt;</a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-badge anim-reveal">
-        <span class="pulse-dot"></span>
-        Open to opportunities
-      </div>
-      <h1 class="hero-name anim-reveal">Kavin</h1>
-      <div class="hero-title-wrapper anim-reveal">
-        <span class="hero-title-prefix">I craft</span>
-        <span class="hero-typed" id="hero-typed"></span>
-        <span class="hero-cursor">|</span>
-      </div>
-      <p class="hero-description anim-reveal">
-        Building robust backend systems with Java &amp; Spring Boot —
-        one clean API at a time.
-      </p>
-      <div class="hero-cta anim-reveal">
-        <a href="#projects" class="btn btn--primary">
-          <span>View Projects</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M7 17L17 7M17 7H7M17 7V17" />
-          </svg>
-        </a>
-        <a href="kavin_resume1.pdf" download="kavin_resume1.pdf" class="btn btn--glass">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <div class="header-actions">
+        <div class="status-indicator" title="Currently open for backend roles &amp; internships">
+          <span class="pulse-beacon"></span>
+          <span class="status-label">Available for work</span>
+        </div>
+        <a href="kavin_resume1.pdf" download="kavin_resume1.pdf" class="btn-pill btn-pill--dark header-resume-cta" title="Download Resume (PDF)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          <span>Get My Resume</span>
+          <span>Resume</span>
+        </a>
+        <a href="#contact" class="btn-pill btn-pill--ghost nav-cta">
+          <span>Let's Talk</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-inner">
+      <div class="mobile-drawer-header-cta">
+        <a href="kavin_resume1.pdf" download="kavin_resume1.pdf" class="btn-pill btn-pill--dark full-width">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Download Resume (PDF)</span>
         </a>
       </div>
-      <div class="hero-scroll anim-reveal">
-        <div class="scroll-line"></div>
+      <ul class="mobile-nav-links">
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Tech Stack</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#education" class="mobile-nav-link">Background</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        <li><a href="kavin_resume1.pdf" download="kavin_resume1.pdf" class="mobile-nav-link">Resume &darr;</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="#contact" class="btn-pill btn-pill--ghost full-width">
+          Get in Touch
+        </a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header anim-reveal">
-        <span class="section-tag">01 — About</span>
-        <h2 class="section-title">More about me</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="anim-reveal">
-            I'm a <strong>B.Tech Information Technology</strong> student at
-            <strong>Sri Krishna College of Technology</strong> with a passion for building
-            clean, scalable backend systems.
+  <main>
+    <!-- ===== HERO SECTION (Sofi-Inspired Motion & Typography) ===== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-stage">
+        
+        <!-- Left: Dramatic Editorial Typography -->
+        <div class="hero-copy">
+          <div class="editorial-eyebrow anim-fade-up">
+            <span class="eyebrow-num">00</span>
+            <span class="eyebrow-sep">/</span>
+            <span class="eyebrow-text">BACKEND ENGINEER &middot; SKCT '27</span>
+          </div>
+
+          <h1 class="hero-title anim-fade-up delay-1">
+            <span class="title-row">build</span>
+            <span class="title-row italic-serif">better</span>
+            <span class="title-row">backend<span class="period">.</span></span>
+          </h1>
+
+          <p class="hero-summary anim-fade-up delay-2">
+            Engineering resilient, high-throughput backend systems with <strong>Java</strong> &amp;
+            <strong>Spring Boot</strong>. I design clean RESTful architectures, optimize relational databases,
+            and build clean APIs that scale effortlessly.
           </p>
-          <p class="anim-reveal">
-            My core expertise lies in <strong>Java</strong> and <strong>Spring Boot</strong>,
-            where I design RESTful APIs backed by <strong>MySQL</strong> databases. I follow
-            industry best practices — layered architecture, input validation, and API testing
-            with Postman.
+
+          <div class="hero-action-group anim-fade-up delay-3">
+            <a href="kavin_resume1.pdf" download="kavin_resume1.pdf" class="btn-pill btn-pill--dark magnetic-btn" id="hero-btn-resume">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Download Resume</span>
+            </a>
+            <a href="#projects" class="btn-pill btn-pill--ghost magnetic-btn" id="hero-btn-projects">
+              <span>Explore Projects</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Live dynamic typing pill -->
+          <div class="specialization-ticker anim-fade-up delay-4">
+            <span class="ticker-prefix">Specialized in:</span>
+            <span class="ticker-dynamic" id="hero-typed">Spring Boot &amp; REST APIs</span>
+            <span class="ticker-caret"></span>
+          </div>
+        </div>
+
+        <!-- Center/Right: Clean Luxury Editorial Avatar Centerpiece -->
+        <div class="hero-visual anim-fade-up delay-2" id="hero-avatar-zone">
+          <div class="avatar-editorial-stage" id="avatar-container">
+            <div class="avatar-backdrop-aura"></div>
+            <div class="avatar-media-wrapper" id="avatar-media">
+              <img src="assets/avatar.png" alt="Kavin Backend Developer Avatar" class="avatar-img" id="avatar-image" />
+            </div>
+            <div class="avatar-editorial-tag">
+              <span class="aet-dot"></span>
+              <span class="aet-name">Kavin</span>
+              <span class="aet-sep">&middot;</span>
+              <span class="aet-role">Backend Engineer</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Bottom Editorial Info Bar (Replicating the Sofi screenshot bottom row) -->
+      <div class="hero-bottom-bar anim-fade-up delay-4">
+        <div class="manifesto-col">
+          <span class="manifesto-text">layered architecture &middot; relational integrity &middot; clean code</span>
+        </div>
+        <div class="institution-col">
+          <span class="inst-tag">Sri Krishna College of Technology &middot; B.Tech IT</span>
+        </div>
+        <div class="scroll-tracker-col">
+          <span class="scroll-label">scroll down</span>
+          <div class="scroll-track">
+            <div class="scroll-fill" id="hero-scroll-bar"></div>
+          </div>
+          <span class="scroll-percentage" id="hero-scroll-percent">0%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LUXURY INFINITE MARQUEE TICKER ===== -->
+    <div class="editorial-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>JAVA 17</span><span class="bullet">&bull;</span>
+        <span>SPRING BOOT</span><span class="bullet">&bull;</span>
+        <span>REST APIS</span><span class="bullet">&bull;</span>
+        <span>MYSQL</span><span class="bullet">&bull;</span>
+        <span>SPRING DATA JPA</span><span class="bullet">&bull;</span>
+        <span>POSTMAN</span><span class="bullet">&bull;</span>
+        <span>DOCKER</span><span class="bullet">&bull;</span>
+        <span>DEEP LEARNING</span><span class="bullet">&bull;</span>
+        <span>DATA STRUCTURES &amp; OOP</span><span class="bullet">&bull;</span>
+        <span>ER MODELING</span><span class="bullet">&bull;</span>
+        <span>JAVA 17</span><span class="bullet">&bull;</span>
+        <span>SPRING BOOT</span><span class="bullet">&bull;</span>
+        <span>REST APIS</span><span class="bullet">&bull;</span>
+        <span>MYSQL</span><span class="bullet">&bull;</span>
+        <span>SPRING DATA JPA</span><span class="bullet">&bull;</span>
+        <span>POSTMAN</span><span class="bullet">&bull;</span>
+        <span>DOCKER</span><span class="bullet">&bull;</span>
+        <span>DEEP LEARNING</span><span class="bullet">&bull;</span>
+        <span>DATA STRUCTURES &amp; OOP</span><span class="bullet">&bull;</span>
+        <span>ER MODELING</span><span class="bullet">&bull;</span>
+      </div>
+    </div>
+
+    <!-- ===== SECTION 01: ABOUT (Scrollytelling Editorial Layout) ===== -->
+    <section class="section-editorial" id="about">
+      <div class="content-container">
+        <div class="section-eyebrow-row anim-reveal">
+          <span class="section-index">01</span>
+          <span class="section-divider"></span>
+          <span class="section-name">ABOUT ME</span>
+        </div>
+
+        <div class="about-editorial-grid">
+          <div class="about-statement-col anim-reveal">
+            <h2 class="editorial-display-heading">
+              Engineering systems that are <span class="italic-serif">reliable</span>, structured, and built to scale.
+            </h2>
+            <div class="about-paragraphs">
+              <p>
+                I am a <strong>B.Tech Information Technology</strong> undergraduate at <strong>Sri Krishna College of Technology</strong>, driven by a deep fascination with how large-scale software behaves under the hood.
+              </p>
+              <p>
+                My primary focus is crafting robust backend services using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>MySQL</strong>. I design with disciplined engineering standards: controller-service-repository patterns, strict input validation, comprehensive exception handling, and meticulous API testing with Postman.
+              </p>
+              <p>
+                I also explore the intersection of backend engineering and <strong>machine learning workflows</strong>, having built convolutional models for dermatological classification and automated resume-to-job matching pipelines.
+              </p>
+            </div>
+
+            <div class="about-quote-box">
+              <p class="quote-text">"Good architecture isn't just about code that runs; it's about systems that remain predictable, debuggable, and maintainable under stress."</p>
+              <span class="quote-author">— Kavin &middot; Backend Developer</span>
+            </div>
+          </div>
+
+          <!-- Right: Quantitative Achievements Bento Grid -->
+          <div class="about-metrics-col">
+            <div class="metric-card anim-reveal" data-spotlight>
+              <div class="metric-top">
+                <span class="metric-number" data-target="5">0</span>
+                <span class="metric-symbol">+</span>
+              </div>
+              <h3 class="metric-title">Completed Projects</h3>
+              <p class="metric-desc">From queueing simulation algorithms to full CRUD REST microservices.</p>
+            </div>
+
+            <div class="metric-card anim-reveal" data-spotlight>
+              <div class="metric-top">
+                <span class="metric-number" data-target="7">0</span>
+                <span class="metric-symbol">+</span>
+              </div>
+              <h3 class="metric-title">Core Technologies</h3>
+              <p class="metric-desc">Mastered across enterprise Java, Spring ecosystem, and SQL databases.</p>
+            </div>
+
+            <div class="metric-card anim-reveal" data-spotlight>
+              <div class="metric-top">
+                <span class="metric-number" data-target="200">0</span>
+                <span class="metric-symbol">+</span>
+              </div>
+              <h3 class="metric-title">Records Benchmark</h3>
+              <p class="metric-desc">Tested API endpoints with structured data loads, pagination, and relational joins.</p>
+            </div>
+
+            <div class="metric-card anim-reveal" data-spotlight>
+              <div class="metric-top">
+                <span class="metric-number" data-target="2">0</span>
+                <span class="metric-symbol">Cert</span>
+              </div>
+              <h3 class="metric-title">Formal Certifications</h3>
+              <p class="metric-desc">Verified credentials in Core Java Programming and SQL Fundamentals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 02: SKILLS & TECH STACK ===== -->
+    <section class="section-editorial section-subtle-bg" id="skills">
+      <div class="content-container">
+        <div class="section-eyebrow-row anim-reveal">
+          <span class="section-index">02</span>
+          <span class="section-divider"></span>
+          <span class="section-name">TECH STACK &amp; CAPABILITIES</span>
+        </div>
+
+        <div class="section-heading-block anim-reveal">
+          <h2 class="editorial-section-title">Tools of my craft<span class="period">.</span></h2>
+          <p class="section-subtitle">
+            A focused toolset tailored for enterprise backends, database reliability, and intelligent automation.
           </p>
-          <p class="anim-reveal">
-            Beyond backend, I've explored <strong>AI/ML workflows</strong>,
-            building an image classification system for skin cancer detection.
+        </div>
+
+        <!-- Bento Grid Stack -->
+        <div class="stack-bento-grid">
+
+          <!-- Card 1: Backend Architecture (Dominant) -->
+          <div class="bento-cell bento-large anim-reveal" data-spotlight>
+            <div class="bento-header">
+              <span class="bento-tag">Primary Domain</span>
+              <div class="bento-icon-pill">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="bento-title">Backend &amp; Enterprise Architecture</h3>
+            <p class="bento-description">
+              Building scalable services using modern Java frameworks. Layered separation of concerns, transactional safety, and robust error management.
+            </p>
+            <div class="pill-cloud">
+              <span class="tech-pill">Java 17</span>
+              <span class="tech-pill">Spring Boot</span>
+              <span class="tech-pill">Spring Data JPA</span>
+              <span class="tech-pill">RESTful APIs</span>
+              <span class="tech-pill">Hibernate</span>
+              <span class="tech-pill">Maven</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Database Systems -->
+          <div class="bento-cell anim-reveal" data-spotlight>
+            <div class="bento-header">
+              <span class="bento-tag">Storage &amp; Models</span>
+              <div class="bento-icon-pill">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <ellipse cx="12" cy="5" rx="9" ry="3" />
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="bento-title">Database Engineering</h3>
+            <p class="bento-description">
+              Relational data modeling, schema normalization (3NF), complex joins, foreign keys, and query optimization.
+            </p>
+            <div class="pill-cloud">
+              <span class="tech-pill">MySQL</span>
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">Complex SQL</span>
+              <span class="tech-pill">ER Modeling</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Concepts & Principles -->
+          <div class="bento-cell anim-reveal" data-spotlight>
+            <div class="bento-header">
+              <span class="bento-tag">Computer Science</span>
+              <div class="bento-icon-pill">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="bento-title">Core Principles</h3>
+            <p class="bento-description">
+              Strong mathematical and conceptual foundation ensuring maintainable, cleanly decoupled codebases.
+            </p>
+            <div class="pill-cloud">
+              <span class="tech-pill">Data Structures</span>
+              <span class="tech-pill">OOP Design</span>
+              <span class="tech-pill">CRUD Pipelines</span>
+              <span class="tech-pill">Queueing Theory</span>
+            </div>
+          </div>
+
+          <!-- Card 4: DevOps & Tooling -->
+          <div class="bento-cell anim-reveal" data-spotlight>
+            <div class="bento-header">
+              <span class="bento-tag">Workflow &amp; CI</span>
+              <div class="bento-icon-pill">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="bento-title">Developer Tooling</h3>
+            <p class="bento-description">
+              Version control, automated testing harnesses, API contract verification, and containerization.
+            </p>
+            <div class="pill-cloud">
+              <span class="tech-pill">Git &amp; GitHub</span>
+              <span class="tech-pill">Postman</span>
+              <span class="tech-pill">Docker</span>
+              <span class="tech-pill">VS Code</span>
+            </div>
+          </div>
+
+          <!-- Card 5: AI & Machine Learning -->
+          <div class="bento-cell bento-wide anim-reveal" data-spotlight>
+            <div class="bento-header">
+              <span class="bento-tag">AI Workflows</span>
+              <div class="bento-icon-pill">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="bento-title">Applied AI &amp; Machine Learning</h3>
+            <p class="bento-description">
+              Integrating intelligence into backend pipelines: TF-IDF similarity calculation, image classification pipelines, and LLM-assisted workflow automation.
+            </p>
+            <div class="pill-cloud">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Deep Learning</span>
+              <span class="tech-pill">Flask</span>
+              <span class="tech-pill">NLP &amp; TF-IDF</span>
+              <span class="tech-pill">scikit-learn</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 03: PROJECTS (Editorial Showcase) ===== -->
+    <section class="section-editorial" id="projects">
+      <div class="content-container">
+        <div class="section-eyebrow-row anim-reveal">
+          <span class="section-index">03</span>
+          <span class="section-divider"></span>
+          <span class="section-name">SELECTED WORKS</span>
+        </div>
+
+        <div class="section-heading-block anim-reveal">
+          <h2 class="editorial-section-title">Built with intention<span class="period">.</span></h2>
+          <p class="section-subtitle">
+            Explore backend architectures, optimization engines, and full-stack solutions.
           </p>
         </div>
-        <div class="about-stats">
-          <div class="stat-card anim-reveal" data-tilt>
-            <span class="stat-number" data-count="5">0</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-card anim-reveal" data-tilt>
-            <span class="stat-number" data-count="7">0</span>
-            <span class="stat-label">Technologies</span>
-          </div>
-          <div class="stat-card anim-reveal" data-tilt>
-            <span class="stat-number" data-count="2">0</span>
-            <span class="stat-label">Certifications</span>
-          </div>
-          <div class="stat-card anim-reveal" data-tilt>
-            <span class="stat-number" data-count="200">0</span>
-            <span class="stat-label">API Records</span>
-          </div>
+
+        <div class="projects-editorial-list">
+
+          <!-- Project 01: Student Management System -->
+          <article class="editorial-project-card anim-reveal" data-spotlight>
+            <div class="project-card-header">
+              <div class="project-index-badge">01</div>
+              <div class="project-category-badge">REST API &middot; Core Backend</div>
+            </div>
+
+            <div class="project-content-grid">
+              <div class="project-details">
+                <h3 class="project-heading">Student Management System API</h3>
+                <p class="project-narrative">
+                  A high-throughput enterprise RESTful API designed to manage 200+ student records with strict integrity. Implements a disciplined 3-tier layered architecture (Controller &rarr; Service &rarr; Repository) with global exception handling and input validation.
+                </p>
+
+                <div class="project-highlights">
+                  <div class="highlight-item">
+                    <span class="highlight-bullet"></span>
+                    <span>200+ student records verified via Postman test collections</span>
+                  </div>
+                  <div class="highlight-item">
+                    <span class="highlight-bullet"></span>
+                    <span>Spring Data JPA with automated schema migration</span>
+                  </div>
+                </div>
+
+                <div class="project-tech-tags">
+                  <span class="tag-pill">Spring Boot</span>
+                  <span class="tag-pill">MySQL</span>
+                  <span class="tag-pill">Spring Data JPA</span>
+                  <span class="tag-pill">Postman</span>
+                  <span class="tag-pill">Java 17</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="https://github.com/KavinC18" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                    <span>Source Code on GitHub</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-visual-preview">
+                <div class="code-preview-window">
+                  <div class="window-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="window-title">StudentController.java</span>
+                  </div>
+                  <pre class="window-code"><code><span class="token-annotation">@RestController</span>
+<span class="token-annotation">@RequestMapping</span>(<span class="token-string">"/api/v1/students"</span>)
+<span class="token-keyword">public class</span> <span class="token-class">StudentController</span> {
+  
+  <span class="token-annotation">@Autowired</span>
+  <span class="token-keyword">private</span> StudentService service;
+
+  <span class="token-annotation">@PostMapping</span>
+  <span class="token-keyword">public</span> ResponseEntity&lt;Student&gt; 
+  create(<span class="token-annotation">@Valid</span> <span class="token-annotation">@RequestBody</span> DTO dto) {
+    <span class="token-keyword">return</span> ResponseEntity
+      .status(HttpStatus.CREATED)
+      .body(service.register(dto));
+  }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02: ChargeFlow EV Grid Optimizer -->
+          <article class="editorial-project-card anim-reveal" data-spotlight>
+            <div class="project-card-header">
+              <div class="project-index-badge">02</div>
+              <div class="project-category-badge">Optimization &middot; Queueing Systems</div>
+            </div>
+
+            <div class="project-content-grid">
+              <div class="project-details">
+                <h3 class="project-heading">ChargeFlow — Smart EV Grid Optimizer</h3>
+                <p class="project-narrative">
+                  AI-powered EV charging infrastructure platform that prevents electrical grid bottlenecks. Leveraged the mathematical <strong>Erlang-C queueing model</strong> to dynamically route electric vehicles, minimize driver wait times, and intelligently distribute station load.
+                </p>
+
+                <div class="project-highlights">
+                  <div class="highlight-item">
+                    <span class="highlight-bullet"></span>
+                    <span>Mathematical queueing models for predictive station congestion</span>
+                  </div>
+                  <div class="highlight-item">
+                    <span class="highlight-bullet"></span>
+                    <span>Interactive geospatial heatmaps via Leaflet and Chart.js telemetry</span>
+                  </div>
+                </div>
+
+                <div class="project-tech-tags">
+                  <span class="tag-pill">Spring Boot</span>
+                  <span class="tag-pill">React</span>
+                  <span class="tag-pill">PostgreSQL / MySQL</span>
+                  <span class="tag-pill">Docker</span>
+                  <span class="tag-pill">Leaflet</span>
+                  <span class="tag-pill">Chart.js</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="https://github.com/KavinC18/Smart-EV-charging-infrastructure-optimization" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                    <span>Repository &amp; Simulation Engine</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-visual-preview">
+                <div class="simulation-dashboard-preview">
+                  <div class="sim-header">
+                    <span class="sim-title">Erlang-C Queue Telemetry</span>
+                    <span class="sim-status-live">SIMULATOR ACTIVE</span>
+                  </div>
+                  <div class="sim-stats-row">
+                    <div class="sim-stat">
+                      <span class="sim-val">34.2%</span>
+                      <span class="sim-lbl">Grid Load Reduction</span>
+                    </div>
+                    <div class="sim-stat">
+                      <span class="sim-val">-18m</span>
+                      <span class="sim-lbl">Avg Driver Delay</span>
+                    </div>
+                  </div>
+                  <div class="sim-route-box">
+                    <span class="route-icon">⚡</span>
+                    <span class="route-txt">Optimized: Station #4 (SKCT Node) &middot; 4/6 Bays Open</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03: AI Skin Cancer Detection -->
+          <article class="editorial-project-card anim-reveal" data-spotlight>
+            <div class="project-card-header">
+              <div class="project-index-badge">03</div>
+              <div class="project-category-badge">Deep Learning &middot; Computer Vision</div>
+            </div>
+
+            <div class="project-content-grid">
+              <div class="project-details">
+                <h3 class="project-heading">AI Dermatological Skin Cancer Classifier</h3>
+                <p class="project-narrative">
+                  Diagnostic computer vision pipeline for automated classification of dermoscopic skin lesion imagery. Implemented the complete ML workflow: dataset normalization, convolutional feature extraction, validation, and iterative hyperparameter tuning.
+                </p>
+
+                <div class="project-highlights">
+                  <div class="highlight-item">
+                    <span class="highlight-bullet"></span>
+                    <span>High validation accuracy through data augmentation &amp; dropout</span>
+                  </div>
+                  <div class="highlight-item">
+                    <span class="highlight-bullet"></span>
+                    <span>Modular Python preprocessing pipeline for high-res medical imagery</span>
+                  </div>
+                </div>
+
+                <div class="project-tech-tags">
+                  <span class="tag-pill">Python</span>
+                  <span class="tag-pill">Deep Learning</span>
+                  <span class="tag-pill">Computer Vision</span>
+                  <span class="tag-pill">NumPy</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="https://github.com/KavinC18" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                    <span>View on GitHub</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-visual-preview">
+                <div class="ml-pipeline-card">
+                  <div class="pipeline-step">
+                    <span class="step-num">01</span>
+                    <span class="step-label">Dermoscopic Input (RGB)</span>
+                  </div>
+                  <div class="pipeline-arrow">&darr;</div>
+                  <div class="pipeline-step active">
+                    <span class="step-num">02</span>
+                    <span class="step-label">Feature Extraction (CNN)</span>
+                  </div>
+                  <div class="pipeline-arrow">&darr;</div>
+                  <div class="pipeline-step">
+                    <span class="step-num">03</span>
+                    <span class="step-label">Softmax Confidence Probability</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 04: Library Management Database System -->
+          <article class="editorial-project-card anim-reveal" data-spotlight>
+            <div class="project-card-header">
+              <div class="project-index-badge">04</div>
+              <div class="project-category-badge">Database Design &middot; Complex SQL</div>
+            </div>
+
+            <div class="project-content-grid">
+              <div class="project-details">
+                <h3 class="project-heading">Enterprise Library Relational Schema</h3>
+                <p class="project-narrative">
+                  Comprehensive relational database architecture engineering book catalogs, borrowers, fine calculations, and active borrowing transactions. Structured with strict referential integrity, indexed primary/foreign keys, and stored routines.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tag-pill">MySQL</span>
+                  <span class="tag-pill">Advanced SQL</span>
+                  <span class="tag-pill">Schema Normalization (3NF)</span>
+                  <span class="tag-pill">ER Modeling</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="https://github.com/KavinC18" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                    <span>View Schema &amp; Queries</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-visual-preview">
+                <div class="sql-query-card">
+                  <div class="query-header">SQL QUERY BENCHMARK</div>
+                  <pre class="query-code"><code><span class="token-keyword">SELECT</span> b.title, u.full_name, t.issue_date
+<span class="token-keyword">FROM</span> transactions t
+<span class="token-keyword">INNER JOIN</span> books b <span class="token-keyword">ON</span> t.book_id = b.id
+<span class="token-keyword">INNER JOIN</span> users u <span class="token-keyword">ON</span> t.user_id = u.id
+<span class="token-keyword">WHERE</span> t.return_status = <span class="token-string">'PENDING'</span>
+<span class="token-keyword">ORDER BY</span> t.issue_date <span class="token-keyword">DESC</span>;</code></pre>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 05: AI Resume Screening System -->
+          <article class="editorial-project-card anim-reveal" data-spotlight>
+            <div class="project-card-header">
+              <div class="project-index-badge">05</div>
+              <div class="project-category-badge">AI / NLP &middot; Talent Tech</div>
+            </div>
+
+            <div class="project-content-grid">
+              <div class="project-details">
+                <h3 class="project-heading">AI Resume Screening &amp; Ranking System</h3>
+                <p class="project-narrative">
+                  Natural Language Processing system that parses candidate resumes against corporate job descriptions. Computes semantic relevance and TF-IDF cosine similarity scores to automatically rank applicant suitability through REST endpoints.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tag-pill">Python</span>
+                  <span class="tag-pill">Flask</span>
+                  <span class="tag-pill">scikit-learn</span>
+                  <span class="tag-pill">TF-IDF</span>
+                  <span class="tag-pill">REST API</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="https://github.com/KavinC18" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                    <span>View on GitHub</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-visual-preview">
+                <div class="ranking-preview-card">
+                  <div class="ranking-item top">
+                    <span class="rk-rank">#1</span>
+                    <span class="rk-name">Backend Engineer CV</span>
+                    <span class="rk-score">94.8% Match</span>
+                  </div>
+                  <div class="ranking-item">
+                    <span class="rk-rank">#2</span>
+                    <span class="rk-name">Full Stack CV</span>
+                    <span class="rk-score">82.1% Match</span>
+                  </div>
+                  <div class="ranking-item">
+                    <span class="rk-rank">#3</span>
+                    <span class="rk-name">Junior Dev CV</span>
+                    <span class="rk-score">69.4% Match</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== SKILLS ===== -->
-  <section class="section section--dark" id="skills">
-    <div class="container">
-      <div class="section-header anim-reveal">
-        <span class="section-tag">02 — Skills</span>
-        <h2 class="section-title">My tech stack</h2>
+    <!-- ===== SECTION 04: EDUCATION & CERTIFICATIONS ===== -->
+    <section class="section-editorial section-subtle-bg" id="education">
+      <div class="content-container">
+        <div class="section-eyebrow-row anim-reveal">
+          <span class="section-index">04</span>
+          <span class="section-divider"></span>
+          <span class="section-name">ACADEMIC &amp; CERTIFICATIONS</span>
+        </div>
+
+        <div class="section-heading-block anim-reveal">
+          <h2 class="editorial-section-title">Foundation &amp; credentials<span class="period">.</span></h2>
+          <p class="section-subtitle">
+            Formal academics paired with continuous technical certification.
+          </p>
+        </div>
+
+        <div class="timeline-editorial-grid">
+          
+          <!-- Item 1: Degree -->
+          <div class="timeline-editorial-item anim-reveal" data-spotlight>
+            <div class="timeline-year-col">
+              <span class="timeline-year">2023 &mdash; 2027</span>
+              <span class="timeline-badge-status">UNDERGRADUATE</span>
+            </div>
+            <div class="timeline-info-col">
+              <h3 class="timeline-title">B.Tech in Information Technology</h3>
+              <p class="timeline-institution">Sri Krishna College of Technology (SKCT)</p>
+              <p class="timeline-desc">
+                Focus on Object-Oriented Software Design, Relational Database Systems, Operating Systems, Algorithm Analysis, and Computer Networks.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Java Certification -->
+          <div class="timeline-editorial-item anim-reveal" data-spotlight>
+            <div class="timeline-year-col">
+              <span class="timeline-year">Certified</span>
+              <span class="timeline-badge-status">OFFLINE</span>
+            </div>
+            <div class="timeline-info-col">
+              <h3 class="timeline-title">Core Java Programming Certification</h3>
+              <p class="timeline-institution">Professional Offline Training &amp; Assessment</p>
+              <p class="timeline-desc">
+                In-depth validation of Java syntax, multi-threading concepts, memory allocation, Collections framework, and object design patterns.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: SQL Fundamentals -->
+          <div class="timeline-editorial-item anim-reveal" data-spotlight>
+            <div class="timeline-year-col">
+              <span class="timeline-year">Certified</span>
+              <span class="timeline-badge-status">ONLINE</span>
+            </div>
+            <div class="timeline-info-col">
+              <h3 class="timeline-title">SQL Fundamentals Certification</h3>
+              <p class="timeline-institution">Coursera</p>
+              <p class="timeline-desc">
+                Comprehensive practical training covering relational schema architectures, multi-table joins, subqueries, grouping aggregations, and constraint enforcement.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <div class="skills-grid">
-
-        <div class="skill-category anim-reveal" data-tilt>
-          <div class="skill-category-header">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-            </div>
-            <h3>Languages</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">SQL</span>
-          </div>
+    <!-- ===== SECTION 05: CONTACT (Luxury Editorial Close) ===== -->
+    <section class="section-editorial contact-editorial-section" id="contact">
+      <div class="content-container">
+        <div class="section-eyebrow-row anim-reveal">
+          <span class="section-index">05</span>
+          <span class="section-divider"></span>
+          <span class="section-name">GET IN TOUCH</span>
         </div>
 
-        <div class="skill-category anim-reveal" data-tilt>
-          <div class="skill-category-header">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
-              </svg>
-            </div>
-            <h3>Backend</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Spring Boot</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">Spring Data JPA</span>
-          </div>
-        </div>
-
-        <div class="skill-category anim-reveal" data-tilt>
-          <div class="skill-category-header">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <ellipse cx="12" cy="5" rx="9" ry="3" />
-                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-              </svg>
-            </div>
-            <h3>Database</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">Relational Design</span>
-            <span class="skill-tag">Joins &amp; Subqueries</span>
-          </div>
-        </div>
-
-        <div class="skill-category anim-reveal" data-tilt>
-          <div class="skill-category-header">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
-            </div>
-            <h3>Tools</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Git &amp; GitHub</span>
-            <span class="skill-tag">Postman</span>
-            <span class="skill-tag">VS Code</span>
-          </div>
-        </div>
-
-        <div class="skill-category anim-reveal" data-tilt>
-          <div class="skill-category-header">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
-              </svg>
-            </div>
-            <h3>Concepts</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Data Structures</span>
-            <span class="skill-tag">OOP</span>
-            <span class="skill-tag">CRUD Operations</span>
-            <span class="skill-tag">API Design</span>
-          </div>
-        </div>
-
-        <div class="skill-category anim-reveal" data-tilt>
-          <div class="skill-category-header">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <h3>AI Tools</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Anti Gravity</span>
-            <span class="skill-tag">Model Training</span>
-            <span class="skill-tag">Workflow Mgmt</span>
-          </div>
-        </div>
-
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS ===== -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-header anim-reveal">
-        <span class="section-tag">03 — Projects</span>
-        <h2 class="section-title">What I've built</h2>
-      </div>
-      <div class="projects-stack">
-
-        <article class="project-card anim-reveal" data-tilt id="project-student-api">
-          <div class="project-number">01</div>
-          <div class="project-body">
-            <h3 class="project-title">Student Management System</h3>
-            <span class="project-label">REST API</span>
-            <p class="project-description">
-              Full-featured RESTful API handling 200+ student records with CRUD operations.
-              Layered architecture (Controller → Service → Repository) with input validation
-              and exception handling.
+        <div class="contact-editorial-stage">
+          <div class="contact-editorial-header anim-reveal">
+            <h2 class="editorial-display-heading">
+              let's build <span class="italic-serif">remarkable</span> systems together<span class="period">.</span>
+            </h2>
+            <p class="contact-lead">
+              Have an opening for a backend developer, an intriguing project, or want to discuss scalable API architectures? Reach out directly.
             </p>
-            <div class="project-tech">
-              <span>Spring Boot</span><span>MySQL</span><span>Spring Data JPA</span><span>Postman</span>
+          </div>
+
+          <!-- Contact Channels Grid -->
+          <div class="contact-cards-grid">
+
+            <!-- Card 1: Email (With Copy Button) -->
+            <div class="contact-bento-card anim-reveal" data-spotlight>
+              <div class="cb-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="cb-content">
+                <span class="cb-label">Direct Email</span>
+                <a href="mailto:727823tuit106@skct.edu.in" class="cb-value email-value" id="email-link">
+                  727823tuit106@skct.edu.in
+                </a>
+              </div>
+              <button class="cb-action-btn" id="btn-copy-email" title="Copy email address" aria-label="Copy email address">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <span class="copy-text">Copy</span>
+              </button>
             </div>
-          </div>
-          <a href="https://github.com/KavinC18" target="_blank" class="project-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
-        </article>
 
-        <article class="project-card anim-reveal" data-tilt id="project-chargeflow">
-          <div class="project-number">02</div>
-          <div class="project-body">
-            <h3 class="project-title">ChargeFlow — EV Grid Optimizer</h3>
-            <span class="project-label">Full Stack &amp; Queueing Simulation</span>
-            <p class="project-description">
-              AI-powered EV charging grid optimization platform. Employs the Erlang-C queueing model to route vehicles, minimize charging delays, and balance grid load, featuring real-time maps and driver analytics.
-            </p>
-            <div class="project-tech">
-              <span>React</span><span>Spring Boot</span><span>MySQL / Postgres</span><span>Docker</span><span>Leaflet</span><span>Chart.js</span>
+            <!-- Card 2: Phone -->
+            <div class="contact-bento-card anim-reveal" data-spotlight>
+              <div class="cb-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <div class="cb-content">
+                <span class="cb-label">Phone &middot; WhatsApp</span>
+                <a href="tel:+917548887045" class="cb-value">
+                  +91 7548887045
+                </a>
+              </div>
+              <a href="tel:+917548887045" class="cb-action-btn" title="Call">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+                <span>Call</span>
+              </a>
             </div>
-          </div>
-          <a href="https://github.com/KavinC18/Smart-EV-charging-infrastructure-optimization" target="_blank" class="project-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
-        </article>
 
-        <article class="project-card anim-reveal" data-tilt id="project-skin-cancer-ai">
-          <div class="project-number">03</div>
-          <div class="project-body">
-            <h3 class="project-title">AI Skin Cancer Detection</h3>
-            <span class="project-label">Deep Learning</span>
-            <p class="project-description">
-              Image classification using deep learning for skin cancer detection.
-              Full ML pipeline — preprocessing, training, validation, and testing.
-              Improved accuracy through iterative model evaluation.
-            </p>
-            <div class="project-tech">
-              <span>Deep Learning</span><span>Python</span><span>Image Classification</span>
+            <!-- Card 3: GitHub -->
+            <div class="contact-bento-card anim-reveal" data-spotlight>
+              <div class="cb-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+              </div>
+              <div class="cb-content">
+                <span class="cb-label">GitHub Repositories</span>
+                <span class="cb-value">github.com/KavinC18</span>
+              </div>
+              <a href="https://github.com/KavinC18" target="_blank" rel="noopener noreferrer" class="cb-action-btn" title="Visit GitHub">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+                <span>Visit</span>
+              </a>
             </div>
-          </div>
-          <a href="https://github.com/KavinC18" target="_blank" class="project-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
-        </article>
 
-        <article class="project-card anim-reveal" data-tilt id="project-library-db">
-          <div class="project-number">04</div>
-          <div class="project-body">
-            <h3 class="project-title">Library Management Database System</h3>
-            <span class="project-label">Database Design</span>
-            <p class="project-description">
-              Relational database schema for managing books, users, and transactions.
-              Complex SQL with joins, subqueries, and constraints. Data integrity via PKs/FKs.
-            </p>
-            <div class="project-tech">
-              <span>MySQL</span><span>SQL</span><span>Database Design</span><span>ER Modeling</span>
+            <!-- Card 4: LinkedIn -->
+            <div class="contact-bento-card anim-reveal" data-spotlight>
+              <div class="cb-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <div class="cb-content">
+                <span class="cb-label">Professional Network</span>
+                <span class="cb-value">linkedin.com/in/kavin-c</span>
+              </div>
+              <a href="https://www.linkedin.com/in/kavin-c-2b775b363/" target="_blank" rel="noopener noreferrer" class="cb-action-btn" title="Connect on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+                <span>Connect</span>
+              </a>
             </div>
-          </div>
-          <a href="https://github.com/KavinC18" target="_blank" class="project-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
-        </article>
 
-        <article class="project-card anim-reveal" data-tilt id="project-resume-screener">
-          <div class="project-number">05</div>
-          <div class="project-body">
-            <h3 class="project-title">AI Resume Screening System</h3>
-            <span class="project-label">AI / NLP</span>
-            <p class="project-description">
-              AI-powered system that analyzes resumes against job descriptions using NLP.
-              Extracts skills, calculates similarity scores via TF-IDF, and ranks multiple
-              candidates with REST API endpoints for upload and analysis.
-            </p>
-            <div class="project-tech">
-              <span>Python</span><span>Flask</span><span>NLP</span><span>scikit-learn</span><span>REST API</span>
+          </div>
+
+          <!-- Bottom Action Box -->
+          <div class="resume-cta-banner anim-reveal">
+            <div class="rcb-text">
+              <h3>Looking for the comprehensive resume?</h3>
+              <p>Download my updated PDF CV with academic coursework and technical details.</p>
             </div>
+            <a href="kavin_resume1.pdf" download="kavin_resume1.pdf" class="btn-pill btn-pill--dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Download kavin_resume1.pdf</span>
+            </a>
           </div>
-          <a href="https://github.com/KavinC18" target="_blank" class="project-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
-        </article>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== EDUCATION ===== -->
-  <section class="section section--dark" id="education">
-    <div class="container">
-      <div class="section-header anim-reveal">
-        <span class="section-tag">04 — Education</span>
-        <h2 class="section-title">Background &amp; certs</h2>
-      </div>
-      <div class="edu-timeline">
-        <div class="edu-item anim-reveal" data-tilt>
-          <div class="edu-dot"></div>
-          <div class="edu-content">
-            <span class="edu-date">2023 — 2027</span>
-            <h3>B.Tech in Information Technology</h3>
-            <p>Sri Krishna College of Technology</p>
-          </div>
-        </div>
-        <div class="edu-item anim-reveal" data-tilt>
-          <div class="edu-dot"></div>
-          <div class="edu-content">
-            <span class="edu-date">Certification</span>
-            <h3>Java Programming</h3>
-            <p>Offline Certification</p>
-          </div>
-        </div>
-        <div class="edu-item anim-reveal" data-tilt>
-          <div class="edu-dot"></div>
-          <div class="edu-content">
-            <span class="edu-date">Certification</span>
-            <h3>SQL Fundamentals</h3>
-            <p>Coursera</p>
-          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ===== CONTACT ===== -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header anim-reveal">
-        <span class="section-tag">05 — Contact</span>
-        <h2 class="section-title">Let's connect</h2>
+  <!-- ===== LUXURY EDITORIAL FOOTER ===== -->
+  <footer class="editorial-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="footer-brand">kavin<span class="logo-dot"></span></span>
+        <span class="footer-copy">Crafted with editorial motion design &bull; &copy; 2026</span>
       </div>
-      <div class="contact-content">
-        <div class="contact-links">
-          <a href="mailto:727823tuit106@skct.edu.in" class="contact-link anim-reveal" data-tilt id="contact-email">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-            </div>
-            <div>
-              <span class="contact-link-label">Email</span>
-              <span class="contact-link-value">727823tuit106@skct.edu.in</span>
-            </div>
-          </a>
-          <a href="tel:+917548887045" class="contact-link anim-reveal" data-tilt id="contact-phone">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg>
-            </div>
-            <div>
-              <span class="contact-link-label">Phone</span>
-              <span class="contact-link-value">+91 7548887045</span>
-            </div>
-          </a>
-          <a href="https://github.com/KavinC18" target="_blank" class="contact-link anim-reveal" data-tilt
-            id="contact-github">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
-            </div>
-            <div>
-              <span class="contact-link-label">GitHub</span>
-              <span class="contact-link-value">KavinC18</span>
-            </div>
-          </a>
-          <a href="https://www.linkedin.com/in/kavin-c-2b775b363/" target="_blank" class="contact-link anim-reveal" data-tilt
-            id="contact-linkedin">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </div>
-            <div>
-              <span class="contact-link-label">LinkedIn</span>
-              <span class="contact-link-value">Connect with me</span>
-            </div>
-          </a>
-        </div>
-
+      <div class="footer-center">
+        <span class="location-pulse"></span>
+        <span class="location-text">Coimbatore, India &middot; SKCT</span>
       </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>Designed &amp; Built by <strong>Kavin</strong> &middot; 2026</p>
+      <div class="footer-right">
+        <a href="#hero" class="btn-back-to-top" id="btn-back-to-top">
+          <span>Back to Top</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="19" x2="12" y2="5" />
+            <polyline points="5 12 12 5 19 12" />
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toast" role="alert" aria-live="assertive">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+    <span id="toast-message">Email copied to clipboard!</span>
+  </div>
 
   <script src="script.js"></script>
 </body>
